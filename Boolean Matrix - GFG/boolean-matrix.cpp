@@ -13,25 +13,33 @@ class Solution
     void booleanMatrix(vector<vector<int> > &matrix)
     {
         // code here 
-        vector<vector<int> > temp = matrix;
-        int rows = matrix.size();
-        int cols = matrix[0].size();
+        int r = matrix.size();
+        int c = matrix[0].size();
+        vector<int> rows(r,0);
+        vector<int> cols(c,0);
         
         
-        for(int i = 0;i<rows;i++){
-            for(int j = 0;j<cols;j++){
-                
-                if(temp[i][j] == 1){
-                    for(int k = 0;k<rows;k++){
-                        matrix[k][j] = 1;
-                    }
-                    
-                    for(int k = 0;k<cols;k++){
-                        matrix[i][k] = 1;
-                    }
-                    
+        for(int i = 0;i<r;i++)
+        {
+            for(int j = 0;j<c;j++)
+            {
+                if(matrix[i][j] == 1)
+                {
+                    rows[i] = 1;
+                    cols[j] = 1;
                 }
-                
+            }
+        }
+        
+        
+        for(int i = 0;i<r;i++)
+        {
+            for(int j = 0;j<c;j++)
+            {
+                if(rows[i] == 1 || cols[j] == 1)
+                {
+                    matrix[i][j] = 1;
+                }
             }
         }
     }
