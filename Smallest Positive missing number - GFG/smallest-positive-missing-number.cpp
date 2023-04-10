@@ -5,13 +5,16 @@ using namespace std;
 
 // } Driver Code Ends
 
+
+
+
 class Solution
 {
     public:
     //Function to find the smallest positive number missing from the array.
-    int missingNumber(int A[], int n) 
+    int missingNumber(int arr[], int n) 
     { 
-        // Your code here
+        // // Your code here
         //  for(int i = 0;i<n;i++){
         //     int CI = arr[i] - 1;
         //     while(arr[i] > 0 && arr[i] <= n && arr[i] != arr[CI]){
@@ -30,16 +33,30 @@ class Solution
         //  return (n+1);
         
         
-        // int n = A.size();
-        for(int i = 0; i < n; ++ i)
-            while(A[i] > 0 && A[i] <= n && A[A[i] - 1] != A[i])
-                swap(A[i], A[A[i] - 1]);
+    for(int i = 0;i<n;i++){
+    while(arr[i] > 0 && arr[i]<=n && arr[arr[i]-1] != arr[i]){
+        swap(arr[arr[i] -1],arr[i]);
+        }
+    }
+    
+    for(int i = 0;i<n;i++){
+        if(arr[i] != i+1){
+            return i+1;
+        }
+    }
+    return n+1;
+
         
-        for(int i = 0; i < n; ++ i)
-            if(A[i] != i + 1)
-                return i + 1;
         
-        return n + 1;
+        // for(int i = 0; i < n; ++ i)
+        //     while(A[i] > 0 && A[i] <= n && A[A[i] - 1] != A[i])
+        //         swap(A[i], A[A[i] - 1]);
+        
+        // for(int i = 0; i < n; ++ i)
+        //     if(A[i] != i + 1)
+        //         return i + 1;
+        
+        // return n + 1;
     } 
 };
 
