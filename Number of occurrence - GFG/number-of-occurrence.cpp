@@ -10,16 +10,18 @@ class Solution{
 public:	
 	/* if x is present in arr[] then returns the count
 		of occurrences of x, otherwise returns 0. */
-	int count(int arr[], int n, int x) {
-	    // code here
-	    int total = -1;
-	    auto lower = lower_bound(arr,arr+n,x);
-	    int first = lower - arr;
-	    auto upper = upper_bound(arr,arr+n,x);
-	    int last = upper - arr;
+	int count(int A[], int n, int K) {
+// 	    // code here
+// 	    int total = -1;
+// 	   // auto lower = lower_bound(arr,arr+n,x);
+// 	   // int first = lower - arr;
+// 	    auto upper = upper_bound(arr,arr+n,x);
+// 	    int last = upper - arr;
 	    
-	    total = last - first ;
-	    return total;
+// 	   // total = last - first ;
+// 	    return last;
+
+         return upper_bound(A,A+n,K)-lower_bound(A,A+n,K);
 	    
 	}
 };
